@@ -88,28 +88,9 @@ close (fd);
 return 0;
 }
 ```
+# OUTPUT:
+![image](https://github.com/ramanpiritha/Linux-File-IO-Systems-locking/assets/147084116/4324bf30-ad85-48f6-8696-668f0b355990)
 
-## OUTPUT
-```
-$ gcc -o lock.o lock.c
-$ ./lock.o tricky.txt 
-opening tricky.txt
-Acquiring shared lock using flock
-Acquiring exclusive lock using flock
-Unlocking
-
-$ lslocks 
-COMMAND           PID  TYPE SIZE MODE  M START END PATH
-:
-VBoxClient       1826 POSIX   5B WRITE 0     0  0 /home/gganesh/.vboxclient-draganddrop.pid
-update-notifier  2405 FLOCK   0B WRITE 0     0   0 /run/user/1000/update-notifier.pid
-lock2.o          3130 FLOCK  41B READ  0     0   0 /home/gganesh/class/2ndunit/tricky.txt
-
-$ lslocks 
-COMMAND           PID  TYPE SIZE MODE  M START END PATH
-:
-lock2.o          3130 FLOCK  41B WRITE 0     0   0 /home/gganesh/class/2ndunit/tricky.txt
-```
 
 # RESULT:
 The programs are executed successfully.
